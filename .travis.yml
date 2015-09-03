@@ -11,6 +11,11 @@ matrix:
         - php: hhvm-nightly
 
 before_script:
+    # Install Phalcon
+    - git clone git://github.com/phalcon/cphalcon.git $TRAVIS_BUILD_DIR/vendor/cphalcon
+    - cd $TRAVIS_BUILD_DIR/vendor/cphalcon/build && ./install && cd $TRAVIS_BUILD_DIR
+    - echo 'extension=phalcon.so' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
     # Update Composer
     - travis_retry composer self-update
 
