@@ -14,6 +14,11 @@ Combination of one of the best template framework Latte and pretty fast framewor
 $ composer require phalette/platte:dev-master
 ```
 
+### Dependencies
+
+* [Latte >= 2.3.0](https://github.com/nette/latte)
+* [Phalcon >= 2.0.0](https://github.com/phalcon/cphalcon/)
+
 ## Configuration
 
 Register Platte as your next `template engine`.
@@ -42,118 +47,118 @@ You can use all the great features from the Latte.
 
 ### Latte Template Engine
 
-See more on [documentation](https://doc.nette.org/en/2.3/templating).
+See more on [official documentation](https://doc.nette.org/en/2.3/templating).
 
 ### Latte Macros
 
-See more on [documentation](https://doc.nette.org/en/2.3/default-macros).
+See more on [official documentation](https://doc.nette.org/en/2.3/default-macros).
 
 | Variable and expression printing                                  |                                                      |
 |-------------------------------------------------------------------|------------------------------------------------------|
-| {$variable}                                                       | prints an escaped variable                           |
-| {$variable|noescape}                                              | prints a variable without escaping                   |
-| {expression}                                                      | prints an escaped expression                         |
-| {expression|noescape}                                             | prints an expression without escaping                |
+| `{$variable}`                                                     | prints an escaped variable                           |
+| `{$variable|noescape}`                                            | prints a variable without escaping                   |
+| `{expression}`                                                    | prints an escaped expression                         |
+| `{expression|noescape}`                                           | prints an expression without escaping                |
 
 | Conditions                                                        |                                                      |
 |-------------------------------------------------------------------|------------------------------------------------------|
-| {if $cond} … {elseif $cond} … {else} … {/if}                    | if condition                                         |
-| {ifset $var} … {elseifset $var} … {/ifset}                       | if (isset()) condition                               |
+| `{if $cond} … {elseif $cond} … {else} … {/if}`                  | if condition                                         |
+| `{ifset $var} … {elseifset $var} … {/ifset}`                     | if (isset()) condition                               |
 
 | Loops                                                             |                                                      |
 |-------------------------------------------------------------------|------------------------------------------------------|
-| {foreach $arr as $item} … {/foreach}                              | foreach loop                                         |
-| {for expr; expr; expr} … {/for}                                   | for loop                                             |
-| {while expr} … {/while}                                           | while loop                                           |
-| {continueIf $cond}                                                | conditional jump to the next iteration               |
-| {breakIf $cond}                                                   | conditional loop break                               |
-| {first} … {/first}                                                | prints if first iteration                            |
-| {last} … {/last}                                                  | prints if last iteration                             |
-| {sep} … {/sep}                                                    | separator                                            |
+| `{foreach $arr as $item} … {/foreach}`                            | foreach loop                                         |
+| `{for expr; expr; expr} … {/for}`                                 | for loop                                             |
+| `{while expr} … {/while}`                                         | while loop                                           |
+| `{continueIf $cond}`                                               | conditional jump to the next iteration               |
+| `{breakIf $cond}`                                                  | conditional loop break                               |
+| `{first} … {/first}`                                              | prints if first iteration                            |
+| `{last} … {/last}`                                                | prints if last iteration                             |
+| `{sep} … {/sep}`                                                  | separator                                            |
 
 | Variables                                                         |                                                      |
 |-------------------------------------------------------------------|------------------------------------------------------|
-| {var $foo = value}                                                | variable creation                                    |
-| {default $foo = value}                                            | default value when variable isn't declared           |
-| {capture $var} … {/capture}                                       | captures a section to a variable                     |
+| `{var $foo = value}`                                              | variable creation                                    |
+| `{default $foo = value}`                                          | default value when variable isn't declared           |
+| `{capture $var} … {/capture}`                                    | captures a section to a variable                     |
 
 | Engine                                                            |                                                      |
 |-------------------------------------------------------------------|------------------------------------------------------|
-| {include 'file.latte'}                                            | includes a template from other file                  |
-| {cache $key} … {/cache}                                           | caches a template section                            |
-| {php expression}                                                  | evaluates an expression without printing it          |
-| {* comment text *}                                                | a comment (removed from evaluation)                  |
-| {syntax mode}                                                     | switches the syntax at runtime                       |
-| {use Class}                                                       | loads new user-defined macros                        |
-| {l} or {r}                                                        | prints { and } characters, respectively              |
-| {contentType $type}                                               | switches the escaping mode and sends HTTP header     |
-| {status $code}                                                    | sets an HTTP status code                             |
+| `{include 'file.latte'}`                                          | includes a template from other file                  |
+| `{cache $key} … {/cache}`                                        | caches a template section                            |
+| `{php expression}`                                                | evaluates an expression without printing it          |
+| `{* comment text *}`                                              | a comment (removed from evaluation)                  |
+| `{syntax mode}`                                                   | switches the syntax at runtime                       |
+| `{use Class}`                                                     | loads new user-defined macros                        |
+| `{l} or {r}`                                                      | prints { and } characters, respectively              |
+| `{contentType $type}`                                             | switches the escaping mode and sends HTTP header     |
+| `{status $code}`                                                  | sets an HTTP status code                             |
 
 | HTML tag attributes                                               |                                                      |
 |-------------------------------------------------------------------|------------------------------------------------------|
-| n:class                                                           | smart class attribute                                |
-| n:attr                                                            | smart HTML attributes                                |
-| n:ifcontent                                                       | Omit empty HTML tag                                  |
-| n:tag-if                                                          | Omit HTML tag if condition is FALSE                  |
+| `n:class`                                                         | smart class attribute                                |
+| `n:attr`                                                          | smart HTML attributes                                |
+| `n:ifcontent`                                                     | Omit empty HTML tag                                  |
+| `n:tag-if`                                                        | Omit HTML tag if condition is FALSE                  |
 
 | Translations                                                      |                                                      |
 |-------------------------------------------------------------------|------------------------------------------------------|
-| {_}Text{/_}                                                       | translates a text                                    |
-| {_expression}                                                     | translates an expression and prints it with escaping |
+| `{_}Text{/_}`                                                     | translates a text                                    |
+| `{_expression}`                                                   | translates an expression and prints it with escaping |
 
 | Blocks, layouts, template inheritance                             |                                                      |
 |-------------------------------------------------------------------|------------------------------------------------------|
-| {block block}                                                     | block definition and immediate print out             |
-| {define block}                                                    | block defintion for future use                       |
-| {include block}                                                   | inserts a block                                      |
-| {include mytemplate.latte}                                        | inserts a template                                   |
-| {includeblock 'file.latte'}                                       | loads blocks from external template                  |
-| {layout 'file.latte'}                                             | specifies a layout file                              |
-| {extends 'file.latte'}                                            | alias for {layout}                                   |
-| {ifset #block} … {/ifset}                                         | condition if block is defined                        |
+| `{block block}`                                                   | block definition and immediate print out             |
+| `{define block}`                                                  | block defintion for future use                       |
+| `{include block}`                                                 | inserts a block                                      |
+| `{include mytemplate.latte}`                                      | inserts a template                                   |
+| `{includeblock 'file.latte'}`                                     | loads blocks from external template                  |
+| `{layout 'file.latte'}`                                           | specifies a layout file                              |
+| `{extends 'file.latte'}`                                          | alias for {layout}                                   |
+| `{ifset #block} … {/ifset}`                                      | condition if block is defined                        |
 
 ### Latte Filters
 
-See more on [documentation](https://doc.nette.org/en/2.3/default-filters).
+See more on [official documentation](https://doc.nette.org/en/2.3/default-filters).
 
-| String modification                      |                                                                                |
-|------------------------------------------|--------------------------------------------------------------------------------|
-| truncate (length, append = '..')         | shortens the length preserving whole words                                     |
-| substr (offset [, length])               | returns part of the string                                                     |
-| trim (charset = whitespace)              | strips whitespace or other characters from the beginning and end of the string |
-| striptags                                | removes HTML tags                                                              |
-| strip                                    | removes whitespace                                                             |
-| webalize (charlist = '...', lower = TRUE) | returns string in cool URL form                                                |
-| toAscii                                  | removes accents                                                                |
-| indent (level = 1, char = "\t"")"        | indents the text from left with number of tabs                                 |
-| replace (search, replace = '')           | replaces all occurrences of the search string with the replacement             |
-| replaceRE (pattern, replace = '')        | replaces all occurrences according to regular expression                       |
-| padLeft (length, pad = ' ')              | completes the string to given length from left                                 |
-| padRight (length, pad = ' ')             | completes the string to given length from right                                |
-| repeat (count)                           | repeats the string                                                             |
-| implode (glue = '')                      | joins an array to a string                                                     |
-| nl2br                                    | new lines with <br>                                                            |
+| String modification                           |                                                                                |
+|-----------------------------------------------|--------------------------------------------------------------------------------|
+| `truncate (length, append = '..')`            | shortens the length preserving whole words                                     |
+| `substr (offset [, length])`                  | returns part of the string                                                     |
+| `trim (charset = whitespace)`                 | strips whitespace or other characters from the beginning and end of the string |
+| `striptags`                                   | removes HTML tags                                                              |
+| `strip`                                       | removes whitespace                                                             |
+| `webalize (charlist = '...', lower = TRUE)`   | returns string in cool URL form                                                |
+| `toAscii`                                     | removes accents                                                                |
+| `indent (level = 1, char = "\t"")"`           | indents the text from left with number of tabs                                 |
+| `replace (search, replace = '')`              | replaces all occurrences of the search string with the replacement             |
+| `replaceRE (pattern, replace = '')`           | replaces all occurrences according to regular expression                       |
+| `padLeft (length, pad = ' ')`                 | completes the string to given length from left                                 |
+| `padRight (length, pad = ' ')`                | completes the string to given length from right                                |
+| `repeat (count)`                              | repeats the string                                                             |
+| `implode (glue = '')`                         | joins an array to a string                                                     |
+| `nl2br`                                       | new lines with <br>                                                            |
 
 | Letter casing                            |                                                                                |
 |------------------------------------------|--------------------------------------------------------------------------------|
-| lower                                    | makes a string lower case                                                      |
-| upper                                    | makes a string upper case                                                      |
-| firstUpper                               | makes the first letter upper case                                              |
-| capitalize                               | lower case, the first letter of each word upper case                           |
+| `lower`                                  | makes a string lower case                                                      |
+| `upper`                                  | makes a string upper case                                                      |
+| `firstUpper`                             | makes the first letter upper case                                              |
+| `capitalize`                             | lower case, the first letter of each word upper case                           |
 
 | Formatting                               |                                                                                |
 |------------------------------------------|--------------------------------------------------------------------------------|
-| date (format)                            | formats date                                                                   |
-| number (decimals = 0, decPoint = '.')    | format number                                                                  |
-| bytes (precision = 2)                    | formats size in bytes                                                          |
+| `date (format)`                          | formats date                                                                   |
+| `number (decimals = 0, decPoint = '.')`  | format number                                                                  |
+| `bytes (precision = 2)`                  | formats size in bytes                                                          |
 
 | Other                                    |                                                                                |
 |------------------------------------------|--------------------------------------------------------------------------------|
-| noescape                                 | prints a variable without escaping                                             |
-| dataStream (mimetype = detect)           | Data URI protocol conversion                                                   |
-| escapeurl                                | escapes parameter in URL                                                       |
-| length                                   | returns length of a string                                                     |
-| null                                     | flushes the input, returns nothing                                             |
+| `noescape`                               | prints a variable without escaping                                             |
+| `dataStream (mimetype = detect)`         | Data URI protocol conversion                                                   |
+| `escapeurl`                              | escapes parameter in URL                                                       |
+| `length`                                 | returns length of a string                                                     |
+| `null`                                   | flushes the input, returns nothing                                             |
 
 ## Features from Phalcon
 
