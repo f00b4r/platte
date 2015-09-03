@@ -1,0 +1,28 @@
+{
+  "name": "phalette/platte",
+  "description": "Nette Latte template adapter for Phalcon",
+  "type": "library",
+  "license": ["BSD-3-Clause"],
+  "homepage": "https://github.com/phalette/ph-latte",
+  "authors": [
+    {
+      "name": "Milan Felix Sulc",
+      "homepage": "http://jfx.cz"
+    }
+  ],
+  "require": {
+    "php": ">= 5.6.0",
+    "ext-phalcon": "~2.0.0",
+    "latte/latte": "~2.3.0"
+  },
+  "require-dev": {
+    "nette/tester": "~1.5",
+    "phalcon/devtools": "~2.0.0",
+    "janmarek/mockista": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Phalette\\": "src/"
+    }
+  }
+}

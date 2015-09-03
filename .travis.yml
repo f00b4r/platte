@@ -1,0 +1,36 @@
+language: php
+php:
+    - 5.6
+    - 7.0
+    - hhvm
+    - hhvm-nightly
+
+matrix:
+    allow_failures:
+        - php: 7.0
+        - php: hhvm-nightly
+
+before_script:
+    # Update Composer
+    - travis_retry composer self-update
+
+    # Install Nette Tester
+    - travis_retry composer install --no-interaction --prefer-source
+
+    # Coveralls
+    - if [ "$TRAVIS_PHP_VERSION" == "5.6" ]; then cat ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini >> ./tests/php-unix.ini; fi
+    - if [ "$TRAVIS_PHP_VERSION" == "5.6" ]; then NTESTER_FLAGS="--coverage ./coverage.xml --coverage-src ./src"; else TESTER_FLAGS=""; fi
+script:
+    # Print info
+    - vendor/bin/tester tests/cases -i -p php
+    # Run tests
+    - vendor/bin/tester tests/cases -s -p php -c tests/php-unix.ini $NTESTER_FLAGS
+
+after_script:
+    # Coveralls
+    - if [ "$TRAVIS_PHP_VERSION" == "5.6" ]; then composer require satooshi/php-coveralls; fi
+    - if [ "$TRAVIS_PHP_VERSION" == "5.6" ]; then php vendor/bin/coveralls -c tests/.coveralls.yml -v; fi
+
+after_failure:
+    # Print *.actual content
+    - 'for i in $(find tests -name \*.actual); do echo "--- $i"; cat $i; echo; echo; done'

@@ -1,0 +1,7 @@
+{for $i=0;$i<2;$i++}
+Item {$i}
+{/for}
+
+{foreach [1, 2, 3] as $i}
+{first}first{/first}{$i}{sep}S{/sep}{last}last{/last}
+{/foreach}
