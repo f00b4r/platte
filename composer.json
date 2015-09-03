@@ -1,6 +1,7 @@
 {
   "name": "phalette/platte",
   "description": "Nette Latte template adapter for Phalcon",
+  "keywords": ["templating", "latte", "nette", "twig", "phalcon", "engine"],
   "type": "library",
   "license": ["BSD-3-Clause"],
   "homepage": "https://github.com/phalette/ph-latte",
