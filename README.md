@@ -1,5 +1,6 @@
 # Platte
 
+[![Phalconist](https://phalconist.com/phalette/platte/default.svg)](https://phalconist.com/phalette/platte)
 [![Build Status](https://img.shields.io/travis/phalette/platte.svg?style=flat-square)](https://travis-ci.org/phalette/platte)
 [![Code coverage](https://img.shields.io/coveralls/phalette/platte.svg?style=flat-square)](https://coveralls.io/r/phalette/platte)
 [![Downloads this Month](https://img.shields.io/packagist/dt/phalette/platte.svg?style=flat-square)](https://packagist.org/packages/phalette/platte)
