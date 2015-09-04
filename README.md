@@ -6,7 +6,7 @@
 [![Latest stable](https://img.shields.io/packagist/v/phalette/platte.svg?style=flat-square)](https://packagist.org/packages/phalette/platte)
 [![HHVM Status](https://img.shields.io/hhvm/phalette/platte.svg?style=flat-square)](http://hhvm.h4cc.de/package/phalette/platte)
 
-Combination of one of the best template framework Latte and pretty fast framework Phalcon.
+Combination of one of the best template engine Latte and pretty fast framework Phalcon.
 
 ## Install
 
