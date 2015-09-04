@@ -50,6 +50,36 @@ You can use all the great features from the Latte.
 
 See more on [official documentation](https://doc.nette.org/en/2.3/templating).
 
+You can use **macros** and **filters**.
+
+#### Macros 
+
+Classic macros
+
+```latte
+<ul>
+    {foreach $users as $user}
+        <li>{$user->name}</li>
+    {/foreach}
+</ul>
+```
+
+N-macros
+
+```latte
+<ul n:foreach="$users as $user">
+    <li>{$user->name}</li>
+</ul>
+```
+
+#### Filters
+
+```latte
+{var $time => time()}
+It's {$time|date:'d.m.Y'} at {$time|date:'H:i:s'}
+```
+
+
 ### Latte Macros
 
 See more on [official documentation](https://doc.nette.org/en/2.3/default-macros).
@@ -266,5 +296,5 @@ final class MyUltraFilters
 
 ```php
 $factory = new LatteFactory();
-$factory->addFile('sayhi', ['MyUltraFilters', 'hi']);
+$factory->addFilter('sayhi', ['MyUltraFilters', 'hi']);
 ```
