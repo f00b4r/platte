@@ -43,6 +43,65 @@ $di->set('view', function () {
 });
 ```
 
+
+## Features from Phalcon
+
+You can access variables in templates.
+
+| Variables    |                                                                                    |
+|--------------|------------------------------------------------------------------------------------|
+| `$_view`     | [Phalcon\Mvc\View](https//docs.phalconphp.com/en/latest/api/Phalcon_Mvc_View.html) |
+| `$_tag`      | [Phalcon\Tag](https//docs.phalconphp.com/en/latest/api/Phalcon_Tag.html)           |
+| `$_url`      | [Phalcon\Mvc\Url](https//docs.phalconphp.com/en/latest/api/Phalcon_Mvc_Url.html)   |
+| `$_security` | [Phalcon\Security](https//docs.phalconphp.com/en/latest/api/Phalcon_Security.html) |
+
+In extreme cases you can access **$_di**. But I really not recommend it.
+
+### Macros
+
+| Files & contents |                            |
+|------------------|----------------------------|
+| `{content}`          | `$_view->getContent()`     |
+| `{partial}`          | `$_view->getPartial($path)`|
+
+| Links & urls     |                            |
+|------------------|----------------------------|
+| `{linkTo}`           | `$_tag->linkTo($args...)`  |
+| `{url}`              | `$_url->get($uri)`         |
+
+| Forms         |                                   |
+|---------------|-----------------------------------|
+| `{textField}`     | `$_tag->textField($args)`         |
+| `{passwordField}` | `$_tag->passwordField($args)`     |
+| `{hiddenField}`   | `$_tag->hiddenField($args)`       |
+| `{fileField}`     | `$_tag->fileField($args)`         |
+| `{radioField}`    | `$_tag->radioField($args)`        |
+| `{submitButton}`  | `$_tag->submitButton($args)`      |
+| `{selectStatic}`  | `$_tag->selectStatic($args...)`   |
+| `{select}`        | `$_tag->select($args...)`         |
+| `{textArea}`      | `$_tag->textArea($args)`          |
+| `{form}`          | `$_tag->form($args)`              |
+| `{endForm}`       | `$_tag->endForm()`                |
+
+| Other         |                                  |
+|---------------|----------------------------------|
+| `{title}`         | `$_tag->getTitle()`              |
+| `{friendlyTitle}` | `$_tag->friendlyTitle($args...)` |
+| `{doctype}`       | `$_tag->getDocType()`            |
+
+| Assets            |                                      |
+|-------------------|--------------------------------------|
+| `{stylesheetLink}`    | `$_tag->stylesheetLink($args...)`    |
+| `{css}`               | `$_tag->javascriptInclude($args...)` |
+| `{javascriptInclude}` | `$_tag->javascriptInclude($args...)` |
+| `{js}`                | `$_tag->javascriptInclude($args...)` |
+| `{image}`             | `$_tag->image($args)`                |
+
+| Security          |                                    |
+|-------------------|------------------------------------|
+| `{securityToken}`     | `$_security->getToken()`           |
+| `{securityTokenKey}`  | `$_security->getTokenKey()`        |
+
 ## Features from Nette
 
 You can use all the great features from the Latte.
@@ -191,64 +250,6 @@ See more on [official documentation](https://doc.nette.org/en/2.3/default-filter
 | `escapeurl`                              | escapes parameter in URL                                                       |
 | `length`                                 | returns length of a string                                                     |
 | `null`                                   | flushes the input, returns nothing                                             |
-
-## Features from Phalcon
-
-You can access variables in templates.
-
-| Variables    |                                                                                    |
-|--------------|------------------------------------------------------------------------------------|
-| `$_view`     | [Phalcon\Mvc\View](https//docs.phalconphp.com/en/latest/api/Phalcon_Mvc_View.html) |
-| `$_tag`      | [Phalcon\Tag](https//docs.phalconphp.com/en/latest/api/Phalcon_Tag.html)           |
-| `$_url`      | [Phalcon\Mvc\Url](https//docs.phalconphp.com/en/latest/api/Phalcon_Mvc_Url.html)   |
-| `$_security` | [Phalcon\Security](https//docs.phalconphp.com/en/latest/api/Phalcon_Security.html) |
-
-In extreme cases you can access **$_di**. But I really not recommend it.
-
-### Macros
-
-| Files & contents |                            |
-|------------------|----------------------------|
-| content          | `$_view->getContent()`     |
-| partial          | `$_view->getPartial($path)`|
-
-| Links & urls     |                            |
-|------------------|----------------------------|
-| linkTo           | `$_tag->linkTo($args...)`  |
-| url              | `$_url->get($uri)`         |
-
-| Forms         |                                   |
-|---------------|-----------------------------------|
-| textField     | `$_tag->textField($args)`         |
-| passwordField | `$_tag->passwordField($args)`     |
-| hiddenField   | `$_tag->hiddenField($args)`       |
-| fileField     | `$_tag->fileField($args)`         |
-| radioField    | `$_tag->radioField($args)`        |
-| submitButton  | `$_tag->submitButton($args)`      |
-| selectStatic  | `$_tag->selectStatic($args...)`   |
-| select        | `$_tag->select($args...)`         |
-| textArea      | `$_tag->textArea($args)`          |
-| form          | `$_tag->form($args)`              |
-| endForm       | `$_tag->endForm()`                |
-
-| Other         |                                  |
-|---------------|----------------------------------|
-| title         | `$_tag->getTitle()`              |
-| friendlyTitle | `$_tag->friendlyTitle($args...)` |
-| doctype       | `$_tag->getDocType()`            |
-
-| Assets            |                                      |
-|-------------------|--------------------------------------|
-| stylesheetLink    | `$_tag->stylesheetLink($args...)`    |
-| css               | `$_tag->javascriptInclude($args...)` |
-| javascriptInclude | `$_tag->javascriptInclude($args...)` |
-| js                | `$_tag->javascriptInclude($args...)` |
-| image             | `$_tag->image($args)`                |
-
-| Security          |                                    |
-|-------------------|------------------------------------|
-| securityToken     | `$_security->getToken()`           |
-| securityTokenKey  | `$_security->getTokenKey()`        |
 
 ## Features from your own
 
