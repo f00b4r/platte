@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Example</title>
+</head>
+<body>
+
+    <h1>This is main layout!</h1>
+
+    {content}
+
+    {partial 'test'}
+
+    {linkTo "products/search", "Search"}
+    {linkTo ['for'=>'show-product', 'id'=>123, 'name'=>'carrots'], 'Show'}
+</body>
+</html>
